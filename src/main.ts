@@ -17,10 +17,12 @@ start.addEventListener('click', () => isActive = true);
 
 stop.addEventListener('click', () => isActive = false);
 
-check.addEventListener('click', () => update());
+check.addEventListener('click', async () => await update());
 
 async function update() {
 	zip = zipcode.value.toString();
+
+	if (zip === "00000") return alert("Cannot use blank zip code!");
 
 	let rows = (document.querySelector("#tbl > thead") as HTMLTableSectionElement).rows;
 	for (let i = 1; i < rows.length; i++) {
