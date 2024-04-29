@@ -1,32 +1,50 @@
-import './style.css'
-import { fetchSites } from './utils.ts'
+import './style.css';
+import { fetchSites } from './utils.ts';
 
 // document.querySelector<HTMLDivElement>('#app')!.innerHTML = ``
 
 let zipcode = document.querySelector<HTMLInputElement>('#zip') as HTMLInputElement;
+let interval = document.querySelector<HTMLInputElement>('#interval') as HTMLInputElement;
 let start = document.querySelector<HTMLButtonElement>('#start') as HTMLButtonElement;
 let stop = document.querySelector<HTMLButtonElement>('#stop') as HTMLButtonElement;
 let check = document.querySelector<HTMLButtonElement>('#check') as HTMLButtonElement;
 let tbl = document.querySelector<HTMLTableElement>('#tbl') as HTMLTableElement;
 // let tbody = tbl!.querySelector('tbody');
 
-let isActive = false;
+// let isActive = false;
 let zip: string = '00000';
+let inter = 2;
+let i: NodeJS.Timeout;
 
-start.addEventListener('click', () => isActive = true);
+start.addEventListener('click', () => {
+	if (isNaN(Number(interval.value)) ||
+		interval.value === '' ||
+		Number(interval.value) < 0.01) alert('Include a valid interval!');
 
-stop.addEventListener('click', () => isActive = false);
+	if (i) clearInterval(i);
+	inter = Number(interval.value);
+	console.log(`Set interval to 1 run per ${inter} seconds`);
+	i = setInterval(async () => {
+		// if (!isActive) return;
+		console.log('Searching...');
+		await update();
+	}, 1000 * 60 * inter);
+});
+
+stop.addEventListener('click', () => {
+	if (i) clearInterval(i);
+});
 
 check.addEventListener('click', async () => await update());
 
 async function update() {
 	zip = zipcode.value.toString();
 	console.log(zip);
-	if (zip == "00000" || zip == '') return alert("Cannot use blank zip code!");
+	if (zip == '00000' || zip == '') return alert('Cannot use blank zip code!');
 
-	let rows = (document.querySelector("#tbl > thead") as HTMLTableSectionElement).rows;
+	let rows = (document.querySelector('#tbl > thead') as HTMLTableSectionElement).rows;
 	for (let i = 1; i < rows.length; i++) {
-		rows[i].remove()
+		rows[i].remove();
 	}
 	let sites: any[] = await fetchSites(zip);
 	let under15Miles = false;
@@ -57,9 +75,3 @@ async function update() {
 		}, 1);
 	}
 }
-
-setInterval(async () => {
-	if (!isActive) return;
-	console.log("Searching...");
-	await update();
-}, 1000 * 60 * 1);
