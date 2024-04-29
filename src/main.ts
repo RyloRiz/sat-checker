@@ -21,8 +21,8 @@ check.addEventListener('click', async () => await update());
 
 async function update() {
 	zip = zipcode.value.toString();
-
-	if (zip === "00000") return alert("Cannot use blank zip code!");
+	console.log(zip);
+	if (zip == "00000" || zip == '') return alert("Cannot use blank zip code!");
 
 	let rows = (document.querySelector("#tbl > thead") as HTMLTableSectionElement).rows;
 	for (let i = 1; i < rows.length; i++) {
@@ -42,7 +42,7 @@ async function update() {
 			let distanceCell = row.insertCell(3);
 			nameCell.innerHTML = site['name'];
 			codeCell.innerHTML = site['code'];
-			addressCell.innerHTML = `${site['address1']}, ${site['city']} ${site['state']}`;
+			addressCell.innerHTML = `${site['address1']}, ${site['city']}, ${site['state']}`;
 			distanceCell.innerHTML = Math.round(site['distance']).toString();
 			if (Math.round(site['distance']) <= 15) {
 				under15Miles = true;
