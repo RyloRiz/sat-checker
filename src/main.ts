@@ -29,6 +29,8 @@ async function update() {
 	}
 	let sites: any[] = await fetchSites(zip);
 	let under15Miles = false;
+	let under15Name = '';
+	let under15Distance = 0;
 	console.log(sites);
 	sites.forEach(site => {
 		if (site['seatAvailability'] == true && site['distance'] < 35) {
@@ -41,12 +43,16 @@ async function update() {
 			codeCell.innerHTML = site['code'];
 			addressCell.innerHTML = `${site['address1']}, ${site['city']} ${site['state']}`;
 			distanceCell.innerHTML = Math.round(site['distance']).toString();
-			if (Math.round(site['distance']) <= 15) under15Miles = true;
+			if (Math.round(site['distance']) <= 15) {
+				under15Miles = true;
+				under15Name = nameCell.innerHTML;
+				under15Distance = Math.round(site['distance']);
+			}
 		}
 	});
 	if (under15Miles) {
 		setTimeout(function () {
-			alert(`The location "${nameCell.innerHTML}" is only ${Math.round(site['distance'])} miles away!`);
+			alert(`The location "${under15Name}" is only ${under15Distance} miles away!`);
 		}, 1);
 	}
 }
