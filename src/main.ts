@@ -14,7 +14,7 @@ let tbl = document.querySelector<HTMLTableElement>('#tbl') as HTMLTableElement;
 // let isActive = false;
 let zip: string = '00000';
 let inter = 2;
-let i: NodeJS.Timeout;
+let i: any;
 
 start.addEventListener('click', () => {
 	if (isNaN(Number(interval.value)) ||
