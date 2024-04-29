@@ -13,16 +13,15 @@ let tbl = document.querySelector<HTMLTableElement>('#tbl') as HTMLTableElement;
 let isActive = false;
 let zip: string = '00000';
 
-start.addEventListener('click', async () => {
-	zip = zipcode.value.toString();
-	isActive = true
-});
+start.addEventListener('click', () => isActive = true);
 
 stop.addEventListener('click', () => isActive = false);
 
 check.addEventListener('click', () => update());
 
 async function update() {
+	zip = zipcode.value.toString();
+
 	let rows = (document.querySelector("#tbl > thead") as HTMLTableSectionElement).rows;
 	for (let i = 1; i < rows.length; i++) {
 		rows[i].remove()
