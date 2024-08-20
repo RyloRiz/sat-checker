@@ -79,12 +79,16 @@ async function update() {
 
 // Set up test dates
 
-let dates = await fetchTestDates() as any[]
+async function setupTestDates() {
+	let dates = await fetchTestDates() as any[]
 
-for (let i = 0; i < dates.length; i++) {
-	let date = dates[i];
-	let optionElem = document.createElement('option')
-	optionElem.label = date['eventDisplayDate'];
-	optionElem.value = date['eventFormattedDate'];
-	testdate.options.add(optionElem);
+	for (let i = 0; i < dates.length; i++) {
+		let date = dates[i];
+		let optionElem = document.createElement('option')
+		optionElem.label = date['eventDisplayDate'];
+		optionElem.value = date['eventFormattedDate'];
+		testdate.options.add(optionElem);
+	}
 }
+
+setupTestDates()
