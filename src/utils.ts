@@ -8,8 +8,15 @@ export function setupCounter(element: HTMLButtonElement) {
 	setCounter(0)
 }
 
-export async function fetchSites(zip: string) {
-	let res = await fetch(`https://aru-test-center-search.collegeboard.org/prod/test-centers?date=2024-06-01&zip=${zip}&country=US`,
+export async function fetchSites(site: string, zip: string) {
+	if (site == "") return [];
+
+	let res = await fetch(`https://aru-test-center-search.collegeboard.org/prod/test-centers?date=${site}&zip=${zip}&country=US`,
 		{ method: 'GET' });
+	return await res.json();
+}
+
+export async function fetchTestDates() {
+	let res = await fetch(`https://sat-admin-dates.collegeboard.org`, { method: 'GET' });
 	return await res.json();
 }

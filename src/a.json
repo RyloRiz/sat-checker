@@ -1,0 +1,79 @@
+[
+	{
+		"adminId": 480,
+		"asmtEventId": 2401,
+		"eventTitle": "Digital SAT August 2024",
+		"eventStartTs": "2024-08-24T12:00:00.000Z",
+		"eventDisplayDate": "August 24, 2024 — Saturday",
+		"eventFormattedDate": "2024-08-24",
+		"eventInternational": true,
+		"finalRegistrationTs": "2024-08-14T03:59:59.000Z",
+		"intlFinalRegTs": "2024-08-14T03:59:59.000Z"
+	},
+	{
+		"adminId": 481,
+		"asmtEventId": 2407,
+		"eventTitle": "Digital SAT October 2024",
+		"eventStartTs": "2024-10-05T12:00:00.000Z",
+		"eventDisplayDate": "October 5, 2024 — Saturday",
+		"eventFormattedDate": "2024-10-05",
+		"eventInternational": true,
+		"finalRegistrationTs": "2024-09-25T03:59:59.000Z",
+		"intlFinalRegTs": "2024-09-25T03:59:59.000Z"
+	},
+	{
+		"adminId": 482,
+		"asmtEventId": 2413,
+		"eventTitle": "Digital SAT November 2024",
+		"eventStartTs": "2024-11-02T12:00:00.000Z",
+		"eventDisplayDate": "November 2, 2024 — Saturday",
+		"eventFormattedDate": "2024-11-02",
+		"eventInternational": true,
+		"finalRegistrationTs": "2024-10-23T03:59:59.000Z",
+		"intlFinalRegTs": "2024-10-23T03:59:59.000Z"
+	},
+	{
+		"adminId": 483,
+		"asmtEventId": 2419,
+		"eventTitle": "Digital SAT December 2024",
+		"eventStartTs": "2024-12-07T13:00:00.000Z",
+		"eventDisplayDate": "December 7, 2024 — Saturday",
+		"eventFormattedDate": "2024-12-07",
+		"eventInternational": true,
+		"finalRegistrationTs": "2024-11-27T04:59:59.000Z",
+		"intlFinalRegTs": "2024-11-27T04:59:59.000Z"
+	},
+	{
+		"adminId": 484,
+		"asmtEventId": 2425,
+		"eventTitle": "Digital SAT March 2025",
+		"eventStartTs": "2025-03-08T13:00:00.000Z",
+		"eventDisplayDate": "March 8, 2025 — Saturday",
+		"eventFormattedDate": "2025-03-08",
+		"eventInternational": true,
+		"finalRegistrationTs": "2025-02-26T04:59:59.000Z",
+		"intlFinalRegTs": "2025-02-26T04:59:59.000Z"
+	},
+	{
+		"adminId": 485,
+		"asmtEventId": 2431,
+		"eventTitle": "Digital SAT May 2025",
+		"eventStartTs": "2025-05-03T12:00:00.000Z",
+		"eventDisplayDate": "May 3, 2025 — Saturday",
+		"eventFormattedDate": "2025-05-03",
+		"eventInternational": true,
+		"finalRegistrationTs": "2025-04-23T03:59:59.000Z",
+		"intlFinalRegTs": "2025-04-23T03:59:59.000Z"
+	},
+	{
+		"adminId": 486,
+		"asmtEventId": 2437,
+		"eventTitle": "Digital SAT June 2025",
+		"eventStartTs": "2025-06-07T12:00:00.000Z",
+		"eventDisplayDate": "June 7, 2025 — Saturday",
+		"eventFormattedDate": "2025-06-07",
+		"eventInternational": true,
+		"finalRegistrationTs": "2025-05-28T03:59:59.000Z",
+		"intlFinalRegTs": "2025-05-28T03:59:59.000Z"
+	}
+]

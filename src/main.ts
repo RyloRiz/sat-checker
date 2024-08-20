@@ -1,8 +1,9 @@
 import './style.css';
-import { fetchSites } from './utils.ts';
+import { fetchSites, fetchTestDates } from './utils.ts';
 
 // document.querySelector<HTMLDivElement>('#app')!.innerHTML = ``
 
+let testdate = document.querySelector<HTMLSelectElement>('#testdate') as HTMLSelectElement;
 let zipcode = document.querySelector<HTMLInputElement>('#zip') as HTMLInputElement;
 let interval = document.querySelector<HTMLInputElement>('#interval') as HTMLInputElement;
 let start = document.querySelector<HTMLButtonElement>('#start') as HTMLButtonElement;
@@ -46,7 +47,7 @@ async function update() {
 	for (let i = 1; i < rows.length; i++) {
 		rows[i].remove();
 	}
-	let sites: any[] = await fetchSites(zip);
+	let sites: any[] = await fetchSites(testdate.value ?? "", zip);
 	let under15Miles = false;
 	let under15Name = '';
 	let under15Distance = 0;
@@ -74,4 +75,16 @@ async function update() {
 			alert(`The location "${under15Name}" is only ${under15Distance} miles away!`);
 		}, 1);
 	}
+}
+
+// Set up test dates
+
+let dates = await fetchTestDates() as any[]
+
+for (let i = 0; i < dates.length; i++) {
+	let date = dates[i];
+	let optionElem = document.createElement('option')
+	optionElem.label = date['eventDisplayDate'];
+	optionElem.value = date['eventFormattedDate'];
+	testdate.options.add(optionElem);
 }
